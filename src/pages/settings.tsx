@@ -54,7 +54,7 @@ export function SettingsPage() {
   return (
     <div className="flex h-full flex-col">
       <PageHeader title={t('settings.title')} subtitle={t('settings.subtitle')} />
-      <ScrollArea className="flex-1">
+      <ScrollArea className="min-h-0 flex-1">
         <div className="mx-auto max-w-2xl divide-y divide-border px-6">
           <Section
             title={t('settings.language')}

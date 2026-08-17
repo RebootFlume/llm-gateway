@@ -39,7 +39,7 @@ export function SideBar({ collapsed }: { collapsed: boolean }) {
           {labelKey ? t(labelKey) : t('nav.explorer')}
         </span>
       </div>
-      <ScrollArea className="flex-1">
+      <ScrollArea className="min-h-0 flex-1">
         <div className="flex flex-col gap-1 p-2">
           <p className="px-2 py-4 text-xs text-muted-foreground">—</p>
         </div>

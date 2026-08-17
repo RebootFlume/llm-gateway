@@ -50,11 +50,18 @@ function HeadersView({
 
 function BodyView({ body, title }: { body: string | null; title: string }) {
   if (!body) return null
+  // Re-indent JSON bodies so long single-line requests read as nested blocks.
+  let formatted = body
+  try {
+    formatted = JSON.stringify(JSON.parse(body), null, 2)
+  } catch {
+    /* keep raw text as-is */
+  }
   return (
     <div className="flex flex-col gap-1">
       <h3 className="text-xs font-medium text-muted-foreground">{title}</h3>
-      <pre className="max-h-96 overflow-auto rounded-md border border-border bg-muted/30 p-2.5 font-mono text-xs leading-relaxed text-foreground">
-        {body}
+      <pre className="max-h-96 overflow-auto whitespace-pre-wrap break-words rounded-md border border-border bg-muted/30 p-2.5 font-mono text-xs leading-relaxed text-foreground">
+        {formatted}
       </pre>
     </div>
   )
@@ -76,7 +83,7 @@ export function CallLogDetailPage() {
 
   return (
     <div className="flex h-full flex-col">
-      <ScrollArea className="flex-1">
+      <ScrollArea className="min-h-0 flex-1">
         <div className="mx-auto flex max-w-4xl flex-col gap-6 p-6">
           <section className="flex flex-col gap-3">
             <SectionTitle>{t('logs.overview')}</SectionTitle>

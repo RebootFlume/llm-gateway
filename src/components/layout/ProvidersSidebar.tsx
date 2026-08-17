@@ -105,7 +105,7 @@ export function ProvidersSidebar({ collapsed }: { collapsed: boolean }) {
         </span>
         <AddProviderDialog />
       </div>
-      <ScrollArea className="flex-1">
+      <ScrollArea className="min-h-0 flex-1">
         <div className="flex flex-col gap-1 p-2">
           <Group title={t('sidebar.default')} items={defaults} />
           <Group title={t('sidebar.custom')} items={custom} />

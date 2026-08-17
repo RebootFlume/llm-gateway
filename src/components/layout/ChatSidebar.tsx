@@ -36,7 +36,7 @@ export function ChatSidebar({ collapsed }: { collapsed: boolean }) {
           {t('sidebar.conversations')}
         </span>
       </div>
-      <ScrollArea className="flex-1">
+      <ScrollArea className="min-h-0 flex-1">
         {conversations.length === 0 ? (
           <p className="p-3 text-xs text-muted-foreground">
             {t('sidebar.noConversations')}
